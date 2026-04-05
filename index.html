@@ -3,325 +3,233 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Campus360 — Your all-in-one student portal for campus life, academics, and opportunities at VIT."
-    />
+    <meta name="description" content="Campus360 — Your all-in-one student portal for campus life, academics, and opportunities at VIT." />
     <title id="title">Campus360</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo+Black&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="neo-theme.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
   </head>
-  <body class="neo-theme">
-    <button id="darkModeToggle" aria-label="Toggle dark mode">
-      <span id="darkModeIcon"> </span>
-    </button>
-
-    <header class="hero">
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content">
-        <h1>Campus360</h1>
-        <p class="hero-tagline">
-          Your all-in-one student portal for campus life, academics, and
-          opportunities.
-        </p>
-        <a href="#features" class="cta-btn">Explore Features</a>
+  <body>
+    <!-- Top Navbar -->
+    <nav class="navbar" id="primaryNav">
+      <a href="index.html" class="navbar-brand">Campus360</a>
+      <div class="navbar-links" id="primaryNavList">
+        <a href="#home">Home</a>
+        <a href="forum.html">Forum</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
       </div>
-      <nav id="primaryNav" class="hero-nav" aria-label="Primary">
-        <button
-          id="navToggle"
-          class="nav-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="primaryNavList"
-          aria-label="Toggle navigation"
-        >
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
+      <div class="navbar-actions">
+        <button class="theme-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+          <span id="darkModeIcon"></span>
         </button>
-        <ul id="primaryNavList">
-          <li><a href="#home">Home</a></li>
-          <li><a href="forum.html">Forum</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li id="navAuthItem">
-            <a href="login.html" id="navAuthLink">Login / Sign Up</a>
-          </li>
-        </ul>
-      </nav>
+        <a href="login.html" id="navAuthLink" class="btn btn-primary btn-sm" id="navAuthItem">Login / Sign Up</a>
+      </div>
+      <button id="navToggle" class="nav-toggle btn-icon" type="button" aria-expanded="false" aria-controls="primaryNavList" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+      <div class="hero-bg"></div>
+      <div class="hero-content scroll-reveal">
+        <h1>Campus360</h1>
+        <p class="hero-tagline">Your all-in-one student portal for campus life, academics, and opportunities.</p>
+        <a href="#features" class="btn btn-primary" style="font-size:1rem; padding:0.8rem 2.2rem;">Explore Features</a>
+      </div>
     </header>
 
-    <section id="home" class="home-card scroll-reveal">
-      <div class="home-welcome">
-        <h2 id="welcomeHeading">Welcome, Vitian!</h2>
-        <p>
-          Campus360 is your personalized gateway to everything happening on
-          campus. Discover events, track your academics, connect with peers, and
-          never miss an opportunity!
-        </p>
+    <!-- Welcome / Home Section -->
+    <section id="home-section" class="scroll-reveal" style="max-width:var(--content-max); margin:2rem auto; text-align:center;">
+      <h2 id="welcomeHeading">Welcome, Vitian!</h2>
+      <p style="max-width:600px; margin:0.5rem auto 2rem;">
+        Campus360 is your personalized gateway to everything happening on campus. Discover events, track your academics, connect with peers, and never miss an opportunity!
+      </p>
+      <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-bottom:2rem;">
+        <a href="#features" class="btn btn-secondary btn-sm">✨ Features</a>
+        <a href="#services" class="btn btn-secondary btn-sm">🛠️ Services</a>
+        <a href="#faq" class="btn btn-secondary btn-sm">❓ FAQ</a>
+        <a href="#contact" class="btn btn-secondary btn-sm">📞 Contact</a>
       </div>
-      <div class="home-quicklinks">
-        <a href="#features" class="quicklink"><span>✨</span> Features</a>
-        <a href="#services" class="quicklink"><span>🛠️</span> Services</a>
-        <a href="#faq" class="quicklink"><span>❓</span> FAQ</a>
-        <a href="#contact" class="quicklink"><span>📞</span> Contact</a>
-      </div>
-      <div class="home-stats">
-        <div class="stat">
-          <span class="stat-num">12,000+</span>
-          <span class="stat-label">Active Students</span>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-num">12,000+</div>
+          <div class="stat-label">Active Students</div>
         </div>
-        <div class="stat">
-          <span class="stat-num">150+</span>
-          <span class="stat-label">Events This Year</span>
+        <div class="stat-item">
+          <div class="stat-num">150+</div>
+          <div class="stat-label">Events This Year</div>
         </div>
-        <div class="stat">
-          <span class="stat-num">300+</span>
-          <span class="stat-label">Internships Shared</span>
+        <div class="stat-item">
+          <div class="stat-num">300+</div>
+          <div class="stat-label">Internships Shared</div>
         </div>
       </div>
     </section>
 
+    <!-- Features Section -->
     <section id="features" class="scroll-reveal">
-      <h2>Campus360 Features</h2>
-      <div class="features-list">
-        <a href="forum.html" style="text-decoration: none; color: inherit"
-          ><div class="feature-item">
-            <span class="feature-icon">💬</span>
-            <div>
-              <strong>Forum</strong>
-              <p>
-                Connect, discuss, and share ideas with fellow students in a
-                vibrant online community.
-              </p>
-            </div>
-          </div></a
-        >
-        <div class="feature-item">
-          <span class="feature-icon">🏢</span>
-          <div>
-            <strong>Internship VNest Corner</strong>
-            <p>
-              Find and share on-campus internship opportunities and experiences.
-            </p>
-          </div>
+      <div style="text-align:center; margin-bottom:1.5rem;">
+        <h2>Campus360 Features</h2>
+      </div>
+      <div class="bento-grid">
+        <a href="forum.html" class="card card-hover" style="text-decoration:none;">
+          <div class="feature-icon">💬</div>
+          <strong>Forum</strong>
+          <p>Connect, discuss, and share ideas with fellow students in a vibrant online community.</p>
+        </a>
+        <div class="card card-hover">
+          <div class="feature-icon">🏢</div>
+          <strong>Internship VNest Corner</strong>
+          <p>Find and share on-campus internship opportunities and experiences.</p>
         </div>
-        <a href="events.html" style="text-decoration: none; color: inherit"
-          ><div class="feature-item">
-            <span class="feature-icon">🎉</span>
-            <div>
-              <strong>Events Corner</strong>
-              <p>
-                Stay updated on campus events, workshops, and club activities.
-              </p>
-            </div>
-          </div></a
-        >
-        <div class="feature-item">
-          <span class="feature-icon">🔗</span>
-          <div>
-            <strong>VTOP Button</strong>
-            <p>
-              Quick access to the official VTOP portal for academic and
-              administrative needs.
-            </p>
-          </div>
+        <a href="events.html" class="card card-hover" style="text-decoration:none;">
+          <div class="feature-icon">🎉</div>
+          <strong>Events Corner</strong>
+          <p>Stay updated on campus events, workshops, and club activities.</p>
+        </a>
+        <div class="card card-hover" onclick="window.open('https://vtopcc.vit.ac.in','_blank')" style="cursor:pointer;">
+          <div class="feature-icon">🔗</div>
+          <strong>VTOP Button</strong>
+          <p>Quick access to the official VTOP portal for academic and administrative needs.</p>
         </div>
-        <div class="feature-item">
-          <span class="feature-icon">🆔</span>
-          <div>
-            <strong>VITianCC Button</strong>
-            <p>Direct link to VITianCC for campus credentials and services.</p>
-          </div>
+        <div class="card card-hover" onclick="window.open('https://chennai.vit.ac.in','_blank')" style="cursor:pointer;">
+          <div class="feature-icon">🆔</div>
+          <strong>VITianCC Button</strong>
+          <p>Direct link to VITianCC for campus credentials and services.</p>
         </div>
-        <div class="feature-item">
-          <span class="feature-icon">📊</span>
-          <div>
-            <strong>Skills / CGPA</strong>
-            <p>
-              Showcase your skills and track your CGPA in a visually appealing
-              dashboard.
-            </p>
-          </div>
+        <div class="card card-hover">
+          <div class="feature-icon">📊</div>
+          <strong>Skills / CGPA</strong>
+          <p>Showcase your skills and track your CGPA in a visually appealing dashboard.</p>
         </div>
-        <div class="feature-item">
-          <span class="feature-icon">🔍</span>
-          <div>
-            <strong>Lost and Found</strong>
-            <p>
-              Report and find lost items easily within the campus community.
-            </p>
-          </div>
+        <a href="lost_found.html" class="card card-hover" style="text-decoration:none;">
+          <div class="feature-icon">🔍</div>
+          <strong>Lost and Found</strong>
+          <p>Report and find lost items easily within the campus community.</p>
+        </a>
+        <a href="internships.html" class="card card-hover" style="text-decoration:none;">
+          <div class="feature-icon">🌐</div>
+          <strong>Internship Tracker</strong>
+          <p>Browse live internship opportunities scraped from Internshala and other sources.</p>
+        </a>
+        <a href="study_resources.html" class="card card-hover" style="text-decoration:none;">
+          <div class="feature-icon">📚</div>
+          <strong>Study Resources</strong>
+          <p>Get the best free internet resources to study, tailored to your preferences.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="scroll-reveal" style="max-width:var(--content-max); margin:4rem auto; padding:0 2rem; text-align:center;">
+      <h2 style="margin-bottom:1.5rem;">Testimonials</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.25rem; text-align:left;">
+        <div class="card" style="border-left:3px solid var(--accent-start);">
+          <p style="font-style:italic; font-size:0.92rem; line-height:1.65;">"Campus360 made my college life so much easier! The events and internship tracker are a game changer."</p>
+          <p style="margin-top:0.75rem; font-weight:600; font-size:0.85rem; color:var(--accent-start);">— Priya S., 3rd Year CSE</p>
         </div>
-        <div
-          class="feature-item"
-          onclick="window.location.href = 'internships.html'"
-          style="cursor: pointer"
-        >
-          <span class="feature-icon">🌐</span>
-          <div>
-            <strong>Internship Tracker</strong>
-            <p>
-              Browse live internship opportunities scraped from Internshala and
-              other sources.
-            </p>
-          </div>
+        <div class="card" style="border-left:3px solid var(--accent-start);">
+          <p style="font-style:italic; font-size:0.92rem; line-height:1.65;">"I found my lost wallet thanks to the Lost and Found Corner. Amazing platform!"</p>
+          <p style="margin-top:0.75rem; font-weight:600; font-size:0.85rem; color:var(--accent-start);">— Rahul M., 2nd Year ECE</p>
         </div>
-        <div class="feature-item">
-          <span class="feature-icon">📚</span>
-          <div>
-            <strong>Study Resources</strong>
-            <p>
-              Get the best free internet resources to study, tailored to your
-              preferences.
-            </p>
-          </div>
+        <div class="card" style="border-left:3px solid var(--accent-start);">
+          <p style="font-style:italic; font-size:0.92rem; line-height:1.65;">"The personalized study resources helped me ace my exams. Highly recommended!"</p>
+          <p style="margin-top:0.75rem; font-weight:600; font-size:0.85rem; color:var(--accent-start);">— Sneha K., 4th Year Mech</p>
         </div>
       </div>
     </section>
 
-    <section id="testimonials" class="scroll-reveal">
-      <h2>Testimonials (Click to learn more)</h2>
-      <div class="testimonial-list">
-        <blockquote>
-          "Campus360 made my college life so much easier! The events and
-          internship tracker are a game changer."
-          <footer>- Priya S., 3rd Year CSE</footer>
-        </blockquote>
-        <blockquote>
-          "I found my lost wallet thanks to the Lost and Found Corner. Amazing
-          platform!"
-          <footer>- Rahul M., 2nd Year ECE</footer>
-        </blockquote>
-        <blockquote>
-          "The personalized study resources helped me ace my exams. Highly
-          recommended!"
-          <footer>- Sneha K., 4th Year Mech</footer>
-        </blockquote>
-      </div>
-    </section>
-
-    <section id="faq" class="scroll-reveal">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-list">
-        <details class="faq-item">
-          <summary>How do I join the forum?</summary>
-          <p>
-            Simply sign up with your campus email and start participating in
-            discussions.
-          </p>
+    <!-- FAQ Section -->
+    <section id="faq" class="scroll-reveal" style="max-width:var(--content-max); margin:4rem auto; padding:0 2rem; text-align:center;">
+      <h2 style="margin-bottom:1.5rem;">Frequently Asked Questions</h2>
+      <div style="display:flex; flex-direction:column; gap:0.75rem; text-align:left;">
+        <details class="card" style="cursor:pointer;">
+          <summary style="font-weight:600; font-size:0.95rem; padding:0.25rem 0; list-style:none; display:flex; justify-content:space-between; align-items:center; user-select:none;">
+            How do I join the forum?
+          </summary>
+          <p style="margin-top:0.75rem; font-size:0.9rem;">Simply sign up with your campus email and start participating in discussions.</p>
         </details>
-        <details class="faq-item">
-          <summary>Is Campus360 free to use?</summary>
-          <p>Yes, all features are free for students and staff.</p>
+        <details class="card" style="cursor:pointer;">
+          <summary style="font-weight:600; font-size:0.95rem; padding:0.25rem 0; list-style:none; display:flex; justify-content:space-between; align-items:center; user-select:none;">
+            Is Campus360 free to use?
+          </summary>
+          <p style="margin-top:0.75rem; font-size:0.9rem;">Yes, all features are free for students and staff.</p>
         </details>
-        <details class="faq-item">
-          <summary>How can I report a lost item?</summary>
-          <p>
-            Go to the Lost and Found Corner and fill out the report form with
-            details of your lost item.
-          </p>
+        <details class="card" style="cursor:pointer;">
+          <summary style="font-weight:600; font-size:0.95rem; padding:0.25rem 0; list-style:none; display:flex; justify-content:space-between; align-items:center; user-select:none;">
+            How can I report a lost item?
+          </summary>
+          <p style="margin-top:0.75rem; font-size:0.9rem;">Go to the Lost and Found Corner and fill out the report form with details of your lost item.</p>
         </details>
-        <details class="faq-item">
-          <summary>How are study resources recommended?</summary>
-          <p>
-            Our system analyzes your preferences and previous selections to
-            suggest the best free resources online.
-          </p>
+        <details class="card" style="cursor:pointer;">
+          <summary style="font-weight:600; font-size:0.95rem; padding:0.25rem 0; list-style:none; display:flex; justify-content:space-between; align-items:center; user-select:none;">
+            How are study resources recommended?
+          </summary>
+          <p style="margin-top:0.75rem; font-size:0.9rem;">Our system analyzes your preferences and previous selections to suggest the best free resources online.</p>
         </details>
       </div>
     </section>
 
-    <section id="about" class="scroll-reveal">
-      <h2>About Us</h2>
-      <p>
-        Campus360 is dedicated to enhancing the student experience through
-        innovative solutions and services.
-      </p>
-      <p>
-        This website is dedicated to solve all your co-curicular and academic
-        related doubts, queries and all internship related doubts to be solved
-        with immediate response.
-      </p>
+    <!-- About Us Section -->
+    <section id="about" class="scroll-reveal" style="max-width:var(--content-max); margin:4rem auto; padding:0 2rem; text-align:center;">
+      <h2 style="margin-bottom:1rem;">About Us</h2>
+      <div style="max-width:800px; margin:0 auto;">
+        <p>Campus360 is dedicated to enhancing the student experience through innovative solutions and services.</p>
+        <p style="margin-top:0.5rem;">This website is dedicated to solve all your co-curicular and academic related doubts, queries and all internship related doubts to be solved with immediate response.</p>
+      </div>
     </section>
 
-    <section id="services" class="scroll-reveal">
-      <h2>Our Services</h2>
+    <!-- Services Section -->
+    <section id="services" class="scroll-reveal" style="max-width:var(--content-max); margin:4rem auto; padding:0 2rem; text-align:center;">
+      <h2 style="margin-bottom:1.5rem;">Our Services</h2>
       <div class="services-grid">
-        <div class="service-card">
-          <span class="service-icon">🎉</span> Events &amp; Club Activities
+        <div class="card card-hover" style="display:flex; align-items:center; justify-content:center; gap:0.75rem; padding:1.1rem; text-align:center; flex-direction:column;">
+          <span style="font-size:2rem;">🎉</span> <span style="font-weight:600;">Events &amp; Club Activities</span>
         </div>
-        <div class="service-card">
-          <span class="service-icon">🔍</span> Lost &amp; Found Corner
+        <div class="card card-hover" style="display:flex; align-items:center; justify-content:center; gap:0.75rem; padding:1.1rem; text-align:center; flex-direction:column;">
+          <span style="font-size:2rem;">🔍</span> <span style="font-weight:600;">Lost &amp; Found Corner</span>
         </div>
-        <div class="service-card">
-          <span class="service-icon">💬</span> Student Forum
+        <div class="card card-hover" style="display:flex; align-items:center; justify-content:center; gap:0.75rem; padding:1.1rem; text-align:center; flex-direction:column;">
+          <span style="font-size:2rem;">💬</span> <span style="font-weight:600;">Student Forum</span>
         </div>
-        <div class="service-card">
-          <span class="service-icon">❓</span> FAQs
+        <div class="card card-hover" style="display:flex; align-items:center; justify-content:center; gap:0.75rem; padding:1.1rem; text-align:center; flex-direction:column;">
+          <span style="font-size:2rem;">❓</span> <span style="font-weight:600;">FAQs</span>
         </div>
-        <div class="service-card">
-          <span class="service-icon">🌐</span> Internship Tracker
+        <div class="card card-hover" style="display:flex; align-items:center; justify-content:center; gap:0.75rem; padding:1.1rem; text-align:center; flex-direction:column;">
+          <span style="font-size:2rem;">🌐</span> <span style="font-weight:600;">Internship Tracker</span>
         </div>
-        <div class="service-card">
-          <span class="service-icon">🔗</span> VTOP
+        <div class="card card-hover" style="display:flex; align-items:center; justify-content:center; gap:0.75rem; padding:1.1rem; text-align:center; flex-direction:column;">
+          <span style="font-size:2rem;">🔗</span> <span style="font-weight:600;">VTOP</span>
         </div>
       </div>
     </section>
 
-    <footer id="contact">
-      <div class="footer-content">
-        <div class="footer-brand">Campus360 &copy; 2026</div>
-        <div class="footer-contact">
-          <span
-            ><b>Email:</b>
-            <a href="mailto:info.campus360@karangandhi.in"
-              >info.campus360@karangandhi.in</a
-            ></span
-          >
-          <span style="margin-left: 1.5em"><b>Phone:</b> +91-1234567890</span>
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <div class="footer-brand">Campus360 &copy; 2026</div>
+      <div style="margin:0.5rem 0; font-size:0.88rem;">
+        <div>
+          <b>Email:</b> 
+          <a href="mailto:info.campus360@karangandhi.in" style="color:rgba(255,255,255,0.7); margin-right:0.5rem;">info.campus360@karangandhi.in</a> | 
+          <a href="mailto:info.campus360@natashasingh.in" style="color:rgba(255,255,255,0.7); margin-left:0.5rem;">info.campus360@natashasingh.in</a>
         </div>
-        <div class="footer-social">
-          <a
-            href="#"
-            title="Instagram"
-            class="footer-social-icon"
-            aria-label="Instagram"
-            ><i class="fa-brands fa-instagram" aria-hidden="true"></i
-          ></a>
-          <a
-            href="#"
-            title="LinkedIn"
-            class="footer-social-icon"
-            aria-label="LinkedIn"
-            ><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i
-          ></a>
-          <a
-            href="#"
-            title="Twitter"
-            class="footer-social-icon"
-            aria-label="Twitter"
-            ><i class="fa-brands fa-x-twitter" aria-hidden="true"></i
-          ></a>
+        <div style="margin-top:0.4rem;">
+          <b>Phone:</b> +91-1234567890
         </div>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
       </div>
     </footer>
 
+    <script src="script.js" defer></script>
     <script src="js/theme.js"></script>
     <script>
       // === AUTH GATE ===
@@ -340,7 +248,6 @@
           }
           // Show logout link instead of login
           const authLink = document.getElementById("navAuthLink");
-          const authItem = document.getElementById("navAuthItem");
           if (authLink) {
             authLink.textContent = "Logout";
             authLink.href = "#";
@@ -351,7 +258,6 @@
             });
           }
         } catch (e) {
-          // If PHP not reachable (opened as file://), skip auth gate
           console.warn("Auth check failed — WAMP may not be running.");
         }
       })();

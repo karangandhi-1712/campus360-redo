@@ -3,406 +3,199 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Campus360 — Login or Sign Up to access your student portal."
-    />
+    <meta name="description" content="Campus360 — Login or Sign Up to access your student portal." />
     <title>Campus360 — Login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo+Black&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="neo-theme.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <style>
-      /* --- Login Page Specific Styles --- */
       body.login-page {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background:
-          radial-gradient(circle at 14% 18%, #9de8ff 0, transparent 42%),
-          radial-gradient(circle at 86% 78%, #ff7fbe 0, transparent 40%),
-          #f7f4ea;
-        padding: 2rem;
+        min-height: 100vh; display: flex; align-items: center; justify-content: center;
+        background: var(--bg); padding: 2rem; position: relative; overflow: hidden;
       }
-
-      .login-container {
-        width: 100%;
-        max-width: 460px;
-        background: #fffef8;
-        border: 2px solid #111827;
-        border-radius: 16px;
-        padding: 2.8rem 2.5rem;
-        box-shadow: 8px 8px 0 #111827;
-      }
-
-      .login-brand {
-        text-align: center;
-        margin-bottom: 2rem;
-      }
-
-      .login-brand h1 {
-        font-size: 2rem;
-        font-weight: 800;
-        font-family: "Archivo Black", "Arial Black", sans-serif;
-        color: #111827;
-        margin-bottom: 0.3em;
-        text-transform: uppercase;
-      }
-
-      .login-brand p {
-        color: #4b5563;
-        font-size: 0.92rem;
-      }
-
-      /* Tab switcher */
-      .auth-tabs {
-        display: flex;
-        background: #f4efe1;
-        border: 2px solid #111827;
-        border-radius: 12px;
-        padding: 4px;
-        margin-bottom: 1.8rem;
-      }
-
-      .auth-tab {
-        flex: 1;
-        padding: 0.65rem;
-        text-align: center;
-        font-weight: 600;
-        font-size: 0.92rem;
-        color: #4b5563;
-        cursor: pointer;
-        border: none;
-        background: transparent;
-        border-radius: 10px;
-        transition: all 0.25s ease;
-        font-family: inherit;
-      }
-
-      .auth-tab.active {
-        background: #ffd84d;
-        color: #111827;
-        box-shadow: 3px 3px 0 #111827;
-      }
-
-      /* Form */
-      .auth-form {
-        display: none;
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .auth-form.active {
-        display: flex;
-      }
-
-      .form-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.35rem;
-      }
-
-      .form-group label {
-        font-size: 0.82rem;
-        font-weight: 500;
-        color: #374151;
-        letter-spacing: 0.3px;
-      }
-
-      .form-group input {
-        background: #ffffff;
-        border: 2px solid #111827;
-        border-radius: 10px;
-        padding: 0.75rem 1rem;
-        font-size: 0.95rem;
-        color: #111827;
-        font-family: inherit;
-        outline: none;
-        transition:
-          border-color 0.25s ease,
-          box-shadow 0.25s ease;
-      }
-
-      .form-group input::placeholder {
-        color: #9ca3af;
-      }
-
-      .form-group input:focus {
-        border-color: #0f62fe;
-        box-shadow: 3px 3px 0 #0f62fe;
-      }
-
-      .auth-submit {
-        margin-top: 0.5rem;
-        padding: 0.85rem;
-        background: #111827;
-        color: #fffef8;
-        border: 2px solid #111827;
-        border-radius: 12px;
-        font-size: 1rem;
-        font-weight: 600;
-        font-family: inherit;
-        cursor: pointer;
-        transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .auth-submit:hover {
-        transform: translate(-2px, -2px);
-        box-shadow: 4px 4px 0 #ffd84d;
-      }
-
-      .auth-submit:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-        transform: none;
-      }
-
-      /* Error/success messages */
-      .auth-message {
-        text-align: center;
-        padding: 0.7rem;
-        border-radius: 8px;
-        font-size: 0.88rem;
-        font-weight: 500;
-        display: none;
-      }
-
-      .auth-message.error {
-        display: block;
-        background: rgba(244, 63, 94, 0.15);
-        color: #fb7185;
-        border: 1px solid rgba(244, 63, 94, 0.2);
-      }
-
-      .auth-message.success {
-        display: block;
-        background: rgba(34, 197, 94, 0.15);
-        color: #4ade80;
-        border: 1px solid rgba(34, 197, 94, 0.2);
-      }
-
-      /* Floating orbs background */
       .login-bg-orb {
-        position: fixed;
-        border-radius: 50%;
-        filter: blur(80px);
-        opacity: 0.3;
-        pointer-events: none;
-        z-index: -1;
+        position: fixed; border-radius: 50%; filter: blur(100px);
+        opacity: 0.25; pointer-events: none; z-index: 0;
       }
-
       .login-bg-orb.orb-1 {
-        width: 400px;
-        height: 400px;
-        background: #6366f1;
-        top: -100px;
-        right: -100px;
-        animation: orbFloat 8s ease-in-out infinite alternate;
+        width: 500px; height: 500px; background: var(--accent-start);
+        top: -150px; right: -150px; animation: orbFloat 10s ease-in-out infinite alternate;
       }
-
       .login-bg-orb.orb-2 {
-        width: 300px;
-        height: 300px;
-        background: #f43f5e;
-        bottom: -80px;
-        left: -80px;
-        animation: orbFloat 10s ease-in-out infinite alternate-reverse;
+        width: 400px; height: 400px; background: var(--accent-end);
+        bottom: -120px; left: -120px; animation: orbFloat 12s ease-in-out infinite alternate-reverse;
       }
-
+      .login-bg-orb.orb-3 {
+        width: 300px; height: 300px; background: var(--highlight);
+        top: 40%; left: 50%; opacity: 0.1; animation: orbFloat 8s ease-in-out infinite alternate;
+      }
       @keyframes orbFloat {
-        0% {
-          transform: translate(0, 0);
-        }
-        100% {
-          transform: translate(40px, -40px);
-        }
+        0% { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(30px, -30px) scale(1.08); }
       }
-
+      .login-container {
+        width: 100%; max-width: 440px; position: relative; z-index: 1;
+      }
+      .login-card {
+        background: var(--bg-card); border: 1px solid var(--border);
+        border-radius: var(--radius-xl); padding: 2.5rem 2.25rem;
+        box-shadow: var(--shadow-lg);
+      }
+      .login-brand { text-align: center; margin-bottom: 2rem; }
+      .login-brand h1 {
+        font-family: var(--font-heading); font-size: 1.75rem; font-weight: 800;
+        background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        margin-bottom: 0.3rem;
+      }
+      .login-brand p { color: var(--text-secondary); font-size: 0.9rem; }
+      .auth-tabs {
+        display: flex; background: var(--border-light); border: 1px solid var(--border);
+        border-radius: var(--radius-md); padding: 4px; margin-bottom: 1.5rem;
+      }
+      .auth-tab {
+        flex: 1; padding: 0.6rem; text-align: center; font-weight: 600;
+        font-size: 0.88rem; color: var(--text-muted); cursor: pointer;
+        border: none; background: transparent; border-radius: var(--radius-sm);
+        transition: all 0.2s ease; font-family: inherit;
+      }
+      .auth-tab.active {
+        background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+        color: #fff; box-shadow: 0 2px 8px rgba(99,102,241,0.25);
+      }
+      .auth-form { display: none; flex-direction: column; gap: 1rem; }
+      .auth-form.active { display: flex; }
+      .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+      .form-group label { font-size: 0.82rem; font-weight: 500; color: var(--text-secondary); }
+      .form-group input, .form-group select {
+        background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-md);
+        padding: 0.75rem 1rem; font-size: 0.92rem; color: var(--text);
+        font-family: inherit; outline: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+      .form-group input::placeholder { color: var(--text-muted); }
+      .form-group input:focus, .form-group select:focus {
+        border-color: var(--accent-start); box-shadow: 0 0 0 3px rgba(99,102,241,0.1);
+      }
+      .auth-submit {
+        margin-top: 0.5rem; padding: 0.8rem;
+        background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+        color: #fff; border: none; border-radius: var(--radius-md);
+        font-size: 0.95rem; font-weight: 600; font-family: inherit;
+        cursor: pointer; transition: all 0.2s ease;
+        box-shadow: 0 2px 8px rgba(99,102,241,0.25);
+      }
+      .auth-submit:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(99,102,241,0.35); }
+      .auth-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+      .auth-message {
+        text-align: center; padding: 0.7rem; border-radius: var(--radius-sm);
+        font-size: 0.85rem; font-weight: 500; display: none;
+      }
+      .auth-message.error { display: block; background: rgba(239,68,68,0.08); color: #ef4444; border: 1px solid rgba(239,68,68,0.15); }
+      .auth-message.success { display: block; background: rgba(34,197,94,0.08); color: #22c55e; border: 1px solid rgba(34,197,94,0.15); }
+      .theme-toggle-fixed {
+        position: fixed; top: 1.5rem; right: 1.5rem; z-index: 100;
+        width: 40px; height: 40px; border-radius: var(--radius-sm);
+        background: var(--bg-card); border: 1px solid var(--border);
+        display: flex; align-items: center; justify-content: center;
+        color: var(--text-secondary); cursor: pointer;
+        transition: all 0.2s ease; box-shadow: var(--shadow-sm);
+      }
+      .theme-toggle-fixed:hover { background: var(--border-light); color: var(--text); }
+      .account-type-toggle {
+        display: flex; background: var(--border-light); border-radius: var(--radius-sm);
+        padding: 3px; margin-bottom: 0.3rem;
+      }
+      .account-type-toggle .auth-tab { font-size: 0.8rem; padding: 0.45rem; }
       @media (max-width: 500px) {
-        .login-container {
-          padding: 2rem 1.5rem;
-          border-radius: 18px;
-        }
+        .login-card { padding: 2rem 1.5rem; }
+        body.login-page { padding: 1rem; }
       }
     </style>
   </head>
-  <body class="login-page neo-theme">
-    <button id="darkModeToggle" aria-label="Toggle dark mode">
-      <span id="darkModeIcon"> </span>
+  <body class="login-page">
+    <button class="theme-toggle-fixed" id="darkModeToggle" aria-label="Toggle dark mode">
+      <span id="darkModeIcon"></span>
     </button>
     <div class="login-bg-orb orb-1"></div>
     <div class="login-bg-orb orb-2"></div>
+    <div class="login-bg-orb orb-3"></div>
 
     <div class="login-container">
-      <div class="login-brand">
-        <h1>Campus360</h1>
-        <p>Your all-in-one student portal</p>
-      </div>
-
-      <div class="auth-tabs">
-        <button class="auth-tab active" data-tab="login">Login</button>
-        <button class="auth-tab" data-tab="signup">Sign Up</button>
-      </div>
-
-      <div id="authMessage" class="auth-message"></div>
-
-      <!-- LOGIN FORM -->
-      <form id="loginForm" class="auth-form active" autocomplete="on">
-        <div class="form-group">
-          <label for="loginIdentifier">Username or Email</label>
-          <input
-            type="text"
-            id="loginIdentifier"
-            name="identifier"
-            placeholder="Enter username or email"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="loginPassword">Password</label>
-          <input
-            type="password"
-            id="loginPassword"
-            name="password"
-            placeholder="Enter password"
-            required
-          />
-        </div>
-        <button type="submit" class="auth-submit">Login</button>
-      </form>
-
-      <!-- SIGNUP FORM -->
-      <form id="signupForm" class="auth-form" autocomplete="on">
-        <!-- Account type toggle -->
-        <div
-          style="
-            display: flex;
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 10px;
-            padding: 3px;
-            margin-bottom: 0.3rem;
-          "
-        >
-          <button
-            type="button"
-            class="auth-tab active"
-            id="accTypeStudent"
-            onclick="setAccountType('student')"
-            style="flex: 1; padding: 0.5rem; font-size: 0.82rem"
-          >
-            🎓 Student
-          </button>
-          <button
-            type="button"
-            class="auth-tab"
-            id="accTypeClub"
-            onclick="setAccountType('club')"
-            style="flex: 1; padding: 0.5rem; font-size: 0.82rem"
-          >
-            🏛️ Club
-          </button>
-        </div>
-        <input type="hidden" id="signupAccountType" value="student" />
-
-        <div class="form-group">
-          <label for="signupName" id="signupNameLabel">Full Name</label>
-          <input
-            type="text"
-            id="signupName"
-            name="name"
-            placeholder="e.g. Priya Sharma"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="signupUsername">Username</label>
-          <input
-            type="text"
-            id="signupUsername"
-            name="username"
-            placeholder="e.g. priya_s"
-            required
-          />
-        </div>
-        <div class="form-group" id="regnoGroup">
-          <label for="signupRegno">Registration Number</label>
-          <input
-            type="text"
-            id="signupRegno"
-            name="regno"
-            placeholder="e.g. 22BCE1234"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="signupEmail">Email</label>
-          <input
-            type="email"
-            id="signupEmail"
-            name="email"
-            placeholder="e.g. priya@vitstudent.ac.in"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="signupPassword">Password</label>
-          <input
-            type="password"
-            id="signupPassword"
-            name="password"
-            placeholder="Min 6 characters"
-            required
-            minlength="6"
-          />
+      <div class="login-card">
+        <div class="login-brand">
+          <h1>Campus360</h1>
+          <p>Where campus buzz meets the hustle.<br />(Log in, or stay lost)</p>
         </div>
 
-        <!-- Club-only fields -->
-        <div id="clubFields" style="display: none">
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login">Login</button>
+          <button class="auth-tab" data-tab="signup">Sign Up</button>
+        </div>
+
+        <div id="authMessage" class="auth-message"></div>
+
+        <!-- LOGIN FORM -->
+        <form id="loginForm" class="auth-form active" autocomplete="on">
           <div class="form-group">
-            <label for="signupClubDesc">Club Description</label>
-            <input
-              type="text"
-              id="signupClubDesc"
-              placeholder="Brief description of your club"
-            />
+            <label for="loginIdentifier">Username or Email</label>
+            <input type="text" id="loginIdentifier" name="identifier" placeholder="Enter username or email" required />
           </div>
           <div class="form-group">
-            <label for="signupClubCategory">Category</label>
-            <select
-              id="signupClubCategory"
-              style="
-                background: rgba(255, 255, 255, 0.08);
-                border: 1px solid rgba(255, 255, 255, 0.12);
-                border-radius: 10px;
-                padding: 0.75rem 1rem;
-                font-size: 0.95rem;
-                color: #fff;
-                font-family: inherit;
-                outline: none;
-                width: 100%;
-              "
-            >
-              <option value="tech">💻 Tech</option>
-              <option value="cultural">🎭 Cultural</option>
-              <option value="sports">🏆 Sports</option>
-              <option value="social">🤝 Social</option>
-              <option value="academic">📚 Academic</option>
-              <option value="other">📌 Other</option>
-            </select>
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" name="password" placeholder="Enter password" required />
           </div>
-        </div>
+          <button type="submit" class="auth-submit">Enter the Grid</button>
+        </form>
 
-        <button type="submit" class="auth-submit">Create Account</button>
-      </form>
+        <!-- SIGNUP FORM -->
+        <form id="signupForm" class="auth-form" autocomplete="on">
+          <div class="account-type-toggle">
+            <button type="button" class="auth-tab active" id="accTypeStudent" onclick="setAccountType('student')" style="flex:1;">🎓 Student</button>
+            <button type="button" class="auth-tab" id="accTypeClub" onclick="setAccountType('club')" style="flex:1;">🏛️ Club</button>
+          </div>
+          <input type="hidden" id="signupAccountType" value="student" />
+          <div class="form-group">
+            <label for="signupName" id="signupNameLabel">Full Name</label>
+            <input type="text" id="signupName" name="name" placeholder="e.g. Priya Sharma" required />
+          </div>
+          <div class="form-group">
+            <label for="signupUsername">Username</label>
+            <input type="text" id="signupUsername" name="username" placeholder="e.g. priya_s" required />
+          </div>
+          <div class="form-group" id="regnoGroup">
+            <label for="signupRegno">Registration Number</label>
+            <input type="text" id="signupRegno" name="regno" placeholder="e.g. 22BCE1234" required />
+          </div>
+          <div class="form-group">
+            <label for="signupEmail">Email</label>
+            <input type="email" id="signupEmail" name="email" placeholder="e.g. priya@vitstudent.ac.in" required />
+          </div>
+          <div class="form-group">
+            <label for="signupPassword">Password</label>
+            <input type="password" id="signupPassword" name="password" placeholder="Min 6 characters" required minlength="6" />
+          </div>
+          <div id="clubFields" style="display:none">
+            <div class="form-group">
+              <label for="signupClubDesc">Club Description</label>
+              <input type="text" id="signupClubDesc" placeholder="Brief description of your club" />
+            </div>
+            <div class="form-group">
+              <label for="signupClubCategory">Category</label>
+              <select id="signupClubCategory" style="width:100%;">
+                <option value="tech">💻 Tech</option>
+                <option value="cultural">🎭 Cultural</option>
+                <option value="sports">🏆 Sports</option>
+                <option value="social">🤝 Social</option>
+                <option value="academic">📚 Academic</option>
+                <option value="other">📌 Other</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="auth-submit">Join the Network</button>
+        </form>
+      </div>
     </div>
 
     <script src="js/auth.js"></script>
