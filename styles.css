@@ -74,7 +74,8 @@ body {
   color: var(--text);
   line-height: 1.7;
   transition:
-    background var(--duration) var(--ease),
+    background-color var(--duration) var(--ease),
+    background-image var(--duration) var(--ease),
     color var(--duration) var(--ease);
   overflow-x: hidden;
 }

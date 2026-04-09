@@ -222,3 +222,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sections.forEach((section) => observer.observe(section));
 });
+
+// --- Interactive Background ---
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  let rafId = null;
+  let targetX = 0;
+  let targetY = 0;
+  let currentX = 0;
+  let currentY = 0;
+
+  document.addEventListener("mousemove", (e) => {
+    // Calculate mouse position relative to center [-1 to 1]
+    const x = (e.clientX / window.innerWidth - 0.5) * 2;
+    const y = (e.clientY / window.innerHeight - 0.5) * 2;
+    
+    // Set target offset
+    targetX = x * 15; // Max 15px shift
+    targetY = y * 15;
+    
+    if (!rafId) {
+      rafId = requestAnimationFrame(updateBackground);
+    }
+  });
+
+  function updateBackground() {
+    // Smooth interpolation (lerp)
+    currentX += (targetX - currentX) * 0.1;
+    currentY += (targetY - currentY) * 0.1;
+
+    if (body.classList.contains("dark-mode") || body.classList.contains("theme-dark")) {
+      // Dark mode default: 0 0, 12px 12px, 0 0
+      body.style.backgroundPosition = `
+        ${currentX * 1.5}px ${currentY * 1.5}px,
+        ${12 + currentX * 0.8}px ${12 + currentY * 0.8}px,
+        0 0
+      `;
+    } else {
+      // Light mode default
+      body.style.backgroundPosition = `
+        ${currentX * 1.2}px ${currentY * 1.2}px,
+        ${currentX * 1.2}px ${currentY * 1.2}px
+      `;
+    }
+
+    if (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) {
+      rafId = requestAnimationFrame(updateBackground);
+    } else {
+      rafId = null;
+    }
+  }
+});
