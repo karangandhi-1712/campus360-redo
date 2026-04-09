@@ -21,9 +21,9 @@ header('Access-Control-Allow-Methods: GET, POST');
 
 $action = $_GET['action'] ?? $_POST['action'] ?? 'list';
 
-// --- Smart auto-scrape: check if data is stale (>30 min) ---
+// --- Smart auto-scrape: check if data is stale (>2 hours) ---
 $SCRAPER_DIR = realpath(__DIR__ . '/../scraper');
-$CACHE_TTL = 1800; // 30 minutes
+$CACHE_TTL = 7200; // 2 hours
 $LOCK_FILE = $SCRAPER_DIR . '/scraper.lock';
 
 /**
